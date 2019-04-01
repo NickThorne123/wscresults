@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="apple-touch-icon-152x152.png" />
+
+    <title>WSC Results</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+
+     <style type="text/css">
+      /* Override some defaults */
+      html, body {
+        background-color: #eee;
+      }
+      body {
+        padding-top: 40px; /* 40px to make the container go all the way to the bottom of the topbar */
+      }
+      .container > footer p {
+        text-align: center; /* center align it with the container */
+      }
+      .container {
+        width: 100%; /* downsize our container to make the content feel a bit tighter and more cohesive. NOTE: this removes two full columns from the grid, meaning you only go to 14 columns and not 16. */
+      }
+
+      /* The white background content wrapper */
+      .content {
+        background-color: #fff;
+        padding: 20px;
+        margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+        -webkit-border-radius: 0 0 6px 6px;
+           -moz-border-radius: 0 0 6px 6px;
+                border-radius: 0 0 6px 6px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+                box-shadow: 0 1px 2px rgba(0,0,0,.15);
+      }
+
+      /* Page header tweaks */
+      .page-header {
+        background-color: #f5f5f5;
+        padding: 20px 20px 10px;
+        margin: -20px -20px 20px;
+      }
+
+      /* Styles you shouldn't keep as they are for displaying this base example only */
+      .content .span10,
+      .content .span4 {
+        min-height: 500px;
+      }
+      /* Give a quick and non-cross-browser friendly divider */
+      .content .span4 {
+        margin-left: 0;
+        padding-left: 19px;
+        border-left: 1px solid #eee;
+      }
+
+      .topbar .btn {
+        border: 0;
+      }
+      .col-md-4 {
+        padding-bottom:5px;
+      }
+
+      .div-padded {
+        padding-bottom:5px;
+      }
+
+            .modal {
+        text-align: center;
+      }
+
+      .modal:before {
+        position: relative;
+        display: inline-block;
+        vertical-align: bottom;
+        content: " ";
+        height: 100%;
+        bottom: 200px;
+      }
+
+      .modal-dialog {
+        position: relative;
+        display: inline-block;
+        text-align: left;
+        vertical-align: bottom;
+        bottom: 200px;
+      }
+      canvas {
+              width: 100% !important;
+              height: auto !important;
+             }
+      .tooltip-inner {
+             white-space:pre-wrap !important;
+       }
+    </style>
+    <script>
+    window.onload = function() { //Get username if present in URL
+    // Condifure the tables
+    //                    'wa','wb','wc','fa','fb','fc','ws','mm'];
+    var series_array = [['Aussie Summer','as','AS'],
+                        ['Weds A','wa','WA'],
+                        ['Weds B','wb','WB'],
+                        ['Weds C','wc','WC'],
+                        ['Fri A','fa','FA'],
+                        ['Fri B','fb','FB'],
+                        ['Fri C','fc','FC'],
+                        ['Winter Series','ws','WS'],
+                        ['Mayhem','mm','MM']];
+    for (var i=0;i< series_array.length;i++)
+    {
+
+        var wa_tbl_str = '  <div class="panel panel-info">'+
+                '<div class="panel-heading">'+
+                '  <h3 class="panel-title">'+series_array[i][0]+' </h3>'+
+                '</div>'+
+                '<div class="panel-body">'+
+                  '<table class="table table-striped table-bordered table-condensed">'+
+                  '<tbody id="as_table">';
+
+        var n=0;
+        wa_tbl_str +=   '<tr>';
+        for (n=1;n<=8;n++)
+        {
+           wa_tbl_str +=
+            '<td class="col-md-3"><input type="button" onclick="location.href='+"'http://www.warsashsc.org.uk/results/18"+
+            series_array[i][1]+n+".htm'"+
+            '";" value="'+series_array[i][2]+' '+n+'" class="btn btn-info"/></td>';
+        // Add row after 4th
+        if (n==4)
+         {
+              wa_tbl_str += '</tr><tr>';
+         }
+        }
+        // Add overall
+        wa_tbl_str +=
+            '</tr><tr><td class="col-md-3"><input type="button" onclick="location.href='+"'http://www.warsashsc.org.uk/results/18"+
+            series_array[i][1]+"pts.htm'"+
+            '";" value="'+series_array[i][2]+' OA" class="btn btn-primary"/></td>';
+        wa_tbl_str+= '</tr>';
+
+        wa_tbl_str +=   '</tbody>'+
+                           '</table>'+
+                         ' </div>'+
+                   '  </div>';
+
+        //document.getElementById(series_array[i][1]+'_table').innerHTML=wa_tbl_str;
+        document.getElementById('wa_results').innerHTML+=wa_tbl_str;
+     }
+
+
+     }
+    </script>
+    </head>
+    <body><span style="weight:bold;">2018 Results</span>&nbsp&nbsp <a href="wsc17.html">For 2017 results click here</a>&nbsp&nbsp <a href="wsc16.html">For 2016 results click here</a>
+    &nbsp&nbsp <a href="wsc15.html">For 2015 results click here</a><br>
+    <div id="wa_results">
+    </div>
+        <input type="button" onclick="location.href='http://www.warsashsc.org.uk/wp-content/uploads/2017_WSC_Sailing_Calendar.pdf'" ;"="" value="2017 Calendar PDF" class="btn btn-warning">
+    <p>
+    <a href="bob.html">For BOB numbers, click here</a>
+    </body>
+    </html>
