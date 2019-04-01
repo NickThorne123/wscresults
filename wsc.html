@@ -57,6 +57,12 @@
         margin: -20px -20px 20px;
       }
 
+      .panel-info>.panel-heading {
+        background-image: -webkit-linear-gradient(top,#d9edf7 0,#179cdf 100%);
+        color: rgb(158, 1, 1);
+        /*-webkit-text-stroke: .5px black;*/
+      }
+
       /* Styles you shouldn't keep as they are for displaying this base example only */
       .content .span10,
       .content .span4 {
@@ -91,6 +97,11 @@
         content: " ";
         height: 100%;
         bottom: 200px;
+      }
+
+      h2 {
+        margin: auto;
+        width: 70%;
       }
 
       .modal-dialog {
@@ -137,7 +148,7 @@
         for (n=1;n<=8;n++)
         {
            wa_tbl_str +=
-            '<td class="col-md-3"><input type="button" onclick="location.href='+"'http://www.warsashsc.org.uk/results/18"+
+            '<td class="col-md-3"><input type="button" onclick="location.href='+"'http://www.warsashsc.org.uk/results/19"+
             series_array[i][1]+n+".htm'"+
             '";" value="'+series_array[i][2]+' '+n+'" class="btn btn-info"/></td>';
         // Add row after 4th
@@ -148,7 +159,7 @@
         }
         // Add overall
         wa_tbl_str +=
-            '</tr><tr><td class="col-md-3"><input type="button" onclick="location.href='+"'http://www.warsashsc.org.uk/results/18"+
+            '</tr><tr><td class="col-md-3"><input type="button" onclick="location.href='+"'http://www.warsashsc.org.uk/results/19"+
             series_array[i][1]+"pts.htm'"+
             '";" value="'+series_array[i][2]+' OA" class="btn btn-primary"/></td>';
         wa_tbl_str+= '</tr>';
@@ -166,12 +177,16 @@
      }
     </script>
     </head>
-    <body><span style="weight:bold;">2018 Results</span>&nbsp&nbsp <a href="wsc17.html">For 2017 results click here</a>&nbsp&nbsp <a href="wsc16.html">For 2016 results click here</a>
-    &nbsp&nbsp <a href="wsc15.html">For 2015 results click here</a><br>
-    <div id="wa_results">
-    </div>
-        <input type="button" onclick="location.href='http://www.warsashsc.org.uk/wp-content/uploads/2017_WSC_Sailing_Calendar.pdf'" ;"="" value="2017 Calendar PDF" class="btn btn-warning">
+    <body>
+      <h2> 2019 WSC Results </h2>
+      <div id="wa_results">
+      </div>
+      <span style="weight:bold;"></span><a href="wsc18.html">2018 results </a>&nbsp&nbsp <a href="wsc17.html">2017 results </a>&nbsp&nbsp <a href="wsc16.html">2016 results </a>
+    &nbsp&nbsp <a href="wsc15.html">2015 results </a><br>
+  
+        <input type="button" onclick="location.href='https://www.warsashsc.org.uk/wp-content/uploads/Sailing_Calendar.pdf'" value="2019 Calendar PDF" class="btn btn-warning">
     <p>
-    <a href="bob.html">For BOB numbers, click here</a>
+    <a href="https://www.warsashsc.org.uk/dinghy-sailing/dinghy-racing/">WSC Dinghy page</a> <br>
+    <a href="bob.html">BOB numbers </a>
     </body>
     </html>
